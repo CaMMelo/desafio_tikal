@@ -1,14 +1,13 @@
 import uvicorn
+from consulta import consulta
 from fastapi import FastAPI
-
-from desafio_tikal.msconsulta.consulta import consulta
 
 app = FastAPI()
 
 
-@app.get("/")
+@app.get("/api/search")
 def search(query: str):
     return consulta(query)
 
 
-uvicorn.run(app, host="localhost", port=8000)
+uvicorn.run(app, host="0.0.0.0", port=8000)

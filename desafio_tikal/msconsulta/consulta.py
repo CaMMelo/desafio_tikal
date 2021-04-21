@@ -1,8 +1,7 @@
 import re
 
+from database import engine
 from sqlalchemy import text
-
-from desafio_tikal.msconsulta.database import engine
 
 QUERY_STRING = "SELECT c.* FROM crud_cliente c {} WHERE {}"
 CLAUSE_JOIN_EMAIL = "LEFT JOIN crud_email e ON e.cliente_id = c.id"

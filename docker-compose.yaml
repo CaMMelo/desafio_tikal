@@ -5,3 +5,7 @@ services:
     build: ./docker/database
     ports:
       - 5432:5432
+  nginx:
+    build: ./docker/nginx
+    ports:
+      - 80:80

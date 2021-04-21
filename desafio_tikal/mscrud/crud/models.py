@@ -23,8 +23,8 @@ TIPO_TELEFONE_CHOICES = (
 
 
 class Telefone(models.Model):
-    ddd = models.IntegerField(null=False)
-    numero = models.CharField(max_length=11, unique=True)
+    ddd = models.CharField(max_length=2, null=False)
+    numero = models.CharField(max_length=8, unique=True)
     tipo = models.CharField(max_length=2, choices=TIPO_TELEFONE_CHOICES)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
 

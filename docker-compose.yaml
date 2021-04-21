@@ -9,3 +9,13 @@ services:
     build: ./docker/nginx
     ports:
       - 80:80
+  msconsulta:
+    build: ./desafio_tikal/msconsulta
+    command: poetry run python main.py
+    ports:
+      - 8001:8000
+  mscrud:
+    build: ./desafio_tikal/mscrud
+    command: poetry run python manage.py runserver
+    ports:
+      - 8002:8000

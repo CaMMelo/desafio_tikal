@@ -1,7 +1,6 @@
 import uvicorn
+from consulta import consulta
 from fastapi import FastAPI
-
-from desafio_tikal.msconsulta.consulta import consulta
 
 app = FastAPI()
 
@@ -11,4 +10,4 @@ def search(query: str):
     return consulta(query)
 
 
-uvicorn.run(app, host="localhost", port=8000)
+uvicorn.run(app, host="127.0.0.1", port=8000)

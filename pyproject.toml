@@ -11,6 +11,9 @@ psycopg2-binary = "^2.8.6"
 djangorestframework = "^3.12.4"
 Markdown = "^3.3.4"
 django-filter = "^2.4.0"
+fastapi = "^0.63.0"
+SQLAlchemy = "^1.4.10"
+uvicorn = "^0.13.4"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

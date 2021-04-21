@@ -16,5 +16,5 @@ Including another URLconf
 from django.urls import include, path
 
 urlpatterns = [
-    path("", include("crud.urls")),
+    path("api/crud/", include("crud.urls")),
 ]

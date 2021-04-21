@@ -10,6 +10,9 @@ SEXO_CHOICES = (
 
 
 class Cliente(models.Model):
+    class Meta:
+        db_table = "crud_cliente"
+
     nome = models.CharField(max_length=80, blank=False, null=False)
     rg = models.CharField(max_length=14, blank=False, null=False, unique=True)
     cpf = models.CharField(
@@ -31,6 +34,9 @@ TIPO_TELEFONE_CHOICES = (
 
 
 class Telefone(models.Model):
+    class Meta:
+        db_table = "crud_telefone"
+
     ddd = models.CharField(
         max_length=2, null=False, validators=[validators.validate_ddd]
     )
@@ -42,5 +48,8 @@ class Telefone(models.Model):
 
 
 class Email(models.Model):
+    class Meta:
+        db_table = "crud_email"
+
     email = models.EmailField(null=False, unique=True)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)

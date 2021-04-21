@@ -5,13 +5,22 @@ services:
     build: ./docker/database
     ports:
       - 5432:5432
+    volumes:
+      - ./docker/database/dump.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
   nginx:
     build: ./docker/nginx
     ports:
       - 80:80
+    depends_on:
+      - msconsulta
+      - mscrud
   msconsulta:
     build: ./desafio_tikal/msconsulta
     command: poetry run python main.py
+    depends_on:
+      - database
   mscrud:
     build: ./desafio_tikal/mscrud
     command: poetry run python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - database
